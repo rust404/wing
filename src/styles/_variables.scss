@@ -1,0 +1,467 @@
+$amber-1: #fff8e1;
+$amber-2: #ffecb3;
+$amber-3: #ffe082;
+$amber-4: #ffd54f;
+$amber-5: #ffca28;
+$amber-6: #ffc107;
+$amber-7: #ffb300;
+$amber-8: #ffa000;
+$amber-9: #ff8f00;
+$amber-10: #ff6f00;
+$amber: $amber-5;
+
+$blue-1: #e3f2fd;
+$blue-2: #bbdefb;
+$blue-3: #90caf9;
+$blue-4: #64b5f6;
+$blue-5: #42a5f5;
+$blue-6: #2196f3;
+$blue-7: #1e88e5;
+$blue-8: #1976d2;
+$blue-9: #1565c0;
+$blue-10: #0d47a1;
+$blue: $blue-5;
+
+$blueGrey-1: #eceff1;
+$blueGrey-2: #cfd8dc;
+$blueGrey-3: #b0bec5;
+$blueGrey-4: #90a4ae;
+$blueGrey-5: #78909c;
+$blueGrey-6: #607d8b;
+$blueGrey-7: #546e7a;
+$blueGrey-8: #455a64;
+$blueGrey-9: #37474f;
+$blueGrey-10: #263238;
+$blueGrey: $blueGrey-5;
+
+$brown-1: #efebe9;
+$brown-2: #d7ccc8;
+$brown-3: #bcaaa4;
+$brown-4: #a1887f;
+$brown-5: #8d6e63;
+$brown-6: #795548;
+$brown-7: #6d4c41;
+$brown-8: #5d4037;
+$brown-9: #4e342e;
+$brown-10: #3e2723;
+$brown: $brown-5;
+
+$cyan-1: #e0f7fa;
+$cyan-2: #b2ebf2;
+$cyan-3: #80deea;
+$cyan-4: #4dd0e1;
+$cyan-5: #26c6da;
+$cyan-6: #00bcd4;
+$cyan-7: #00acc1;
+$cyan-8: #0097a7;
+$cyan-9: #00838f;
+$cyan-10: #006064;
+$cyan: $cyan-5;
+
+$deepOrange-1: #fbe9e7;
+$deepOrange-2: #ffccbc;
+$deepOrange-3: #ffab91;
+$deepOrange-4: #ff8a65;
+$deepOrange-5: #ff7043;
+$deepOrange-6: #ff5722;
+$deepOrange-7: #f4511e;
+$deepOrange-8: #e64a19;
+$deepOrange-9: #d84315;
+$deepOrange-10: #bf360c;
+$deepOrange: $deepOrange-5;
+
+$deepPurple-1: #ede7f6;
+$deepPurple-2: #d1c4e9;
+$deepPurple-3: #b39ddb;
+$deepPurple-4: #9575cd;
+$deepPurple-5: #7e57c2;
+$deepPurple-6: #673ab7;
+$deepPurple-7: #5e35b1;
+$deepPurple-8: #512da8;
+$deepPurple-9: #4527a0;
+$deepPurple-10: #311b92;
+$deepPurple: $deepPurple-5;
+
+$green-1: #e8f5e9;
+$green-2: #c8e6c9;
+$green-3: #a5d6a7;
+$green-4: #81c784;
+$green-5: #66bb6a;
+$green-6: #4caf50;
+$green-7: #43a047;
+$green-8: #388e3c;
+$green-9: #2e7d32;
+$green-10: #1b5e20;
+$green: $green-5;
+
+$white: #fff;
+$grey-1: #fafafa;
+$grey-2: #f5f5f5;
+$grey-3: #eeeeee;
+$grey-4: #e0e0e0;
+$grey-5: #bdbdbd;
+$grey-6: #9e9e9e;
+$grey-7: #757575;
+$grey-8: #616161;
+$grey-9: #424242;
+$grey-10: #212121;
+$grey: $grey-5;
+$black: #000;
+
+$indigo-1: #e8eaf6;
+$indigo-2: #c5cae9;
+$indigo-3: #9fa8da;
+$indigo-4: #7986cb;
+$indigo-5: #5c6bc0;
+$indigo-6: #3f51b5;
+$indigo-7: #3949ab;
+$indigo-8: #303f9f;
+$indigo-9: #283593;
+$indigo-10: #1a237e;
+$indigo: $indigo-5;
+
+$lightBlue-1: #e1f5fe;
+$lightBlue-2: #b3e5fc;
+$lightBlue-3: #81d4fa;
+$lightBlue-4: #4fc3f7;
+$lightBlue-5: #29b6f6;
+$lightBlue-6: #03a9f4;
+$lightBlue-7: #039be5;
+$lightBlue-8: #0288d1;
+$lightBlue-9: #0277bd;
+$lightBlue-10: #01579b;
+$lightBlue: $lightBlue-5;
+
+$lightGreen-1: #f1f8e9;
+$lightGreen-2: #dcedc8;
+$lightGreen-3: #c5e1a5;
+$lightGreen-4: #aed581;
+$lightGreen-5: #9ccc65;
+$lightGreen-6: #8bc34a;
+$lightGreen-7: #7cb342;
+$lightGreen-8: #689f38;
+$lightGreen-9: #558b2f;
+$lightGreen-10: #33691e;
+$lightGreen: $lightGreen-5;
+
+$orange-1: #fff3e0;
+$orange-2: #ffe0b2;
+$orange-3: #ffcc80;
+$orange-4: #ffb74d;
+$orange-5: #ffa726;
+$orange-6: #ff9800;
+$orange-7: #fb8c00;
+$orange-8: #f57c00;
+$orange-9: #ef6c00;
+$orange-10: #e65100;
+$orange: $orange-5;
+
+$pink-1: #fce4ec;
+$pink-2: #f8bbd0;
+$pink-3: #f48fb1;
+$pink-4: #f06292;
+$pink-5: #ec407a;
+$pink-6: #e91e63;
+$pink-7: #d81b60;
+$pink-8: #c2185b;
+$pink-9: #ad1457;
+$pink-10: #880e4f;
+$pink: $pink-5;
+
+$purple-1: #f3e5f5;
+$purple-2: #e1bee7;
+$purple-3: #ce93d8;
+$purple-4: #ba68c8;
+$purple-5: #ab47bc;
+$purple-6: #9c27b0;
+$purple-7: #8e24aa;
+$purple-8: #7b1fa2;
+$purple-9: #6a1b9a;
+$purple-10: #4a148c;
+$purple: $purple-5;
+
+$red-1: #ffebee;
+$red-2: #ffcdd2;
+$red-3: #ef9a9a;
+$red-4: #e57373;
+$red-5: #ef5350;
+$red-6: #f44336;
+$red-7: #e53935;
+$red-8: #d32f2f;
+$red-9: #c62828;
+$red-10: #b71c1c;
+$red: $red-5;
+
+$teal-1: #e0f2f1;
+$teal-2: #b2dfdb;
+$teal-3: #80cbc4;
+$teal-4: #4db6ac;
+$teal-5: #26a69a;
+$teal-6: #009688;
+$teal-7: #00897b;
+$teal-8: #00796b;
+$teal-9: #00695c;
+$teal-10: #004d40;
+$teal: $teal-5;
+
+$yellow-1: #fffde7;
+$yellow-2: #fff9c4;
+$yellow-3: #fff59d;
+$yellow-4: #fff176;
+$yellow-5: #ffee58;
+$yellow-6: #ffeb3b;
+$yellow-7: #fdd835;
+$yellow-8: #fbc02d;
+$yellow-9: #f9a825;
+$yellow-10: #f57f17;
+$yellow: $yellow-5;
+
+$primary: $blue;
+$secondary: $grey;
+$warning: $amber;
+$success: $green;
+$danger: $red;
+$info: $lightBlue;
+
+$font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+  "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
+  "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
+$font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas,
+  "Liberation Mono", "Courier New", monospace !default;
+$font-family-base: $font-family-sans-serif !default;
+
+$font-size-base: 1rem !default; // Assumes the browser default, typically `16px`
+$font-size-lg: $font-size-base * 1.25 !default;
+$font-size-sm: $font-size-base * 0.875 !default;
+$font-size-root: null !default;
+
+$font-weight-lighter: lighter !default;
+$font-weight-light: 300 !default;
+$font-weight-normal: 400 !default;
+$font-weight-bold: 700 !default;
+$font-weight-bolder: bolder !default;
+$font-weight-base: $font-weight-normal !default;
+
+$line-height-base: 1.5 !default;
+$line-height-lg: 2 !default;
+$line-height-sm: 1.25 !default;
+
+$h1-font-size: $font-size-base * 2.5 !default;
+$h2-font-size: $font-size-base * 2 !default;
+$h3-font-size: $font-size-base * 1.75 !default;
+$h4-font-size: $font-size-base * 1.5 !default;
+$h5-font-size: $font-size-base * 1.25 !default;
+$h6-font-size: $font-size-base !default;
+
+$link-color: $primary !default;
+$link-decoration: none !default;
+$link-hover-color: darken($link-color, 15%) !default;
+$link-hover-decoration: underline !default;
+
+$body-bg: $white !default;
+$body-color: $grey-9 !default;
+$body-text-align: null !default;
+
+// Spacing
+$spacer: 1rem !default;
+
+$headings-margin-bottom: $spacer / 2 !default;
+$headings-font-family: null !default;
+$headings-font-style: null !default;
+$headings-font-weight: 500 !default;
+$headings-line-height: 1.2 !default;
+$headings-color: null !default;
+
+// Paragraphs
+
+$paragraph-margin-bottom: 1rem !default;
+
+// 字体其他部分 heading list hr 等等
+$headings-margin-bottom: $spacer / 2 !default;
+$headings-font-family: null !default;
+$headings-font-style: null !default;
+$headings-font-weight: 500 !default;
+$headings-line-height: 1.2 !default;
+$headings-color: null !default;
+
+$display1-size: 6rem !default;
+$display2-size: 5.5rem !default;
+$display3-size: 4.5rem !default;
+$display4-size: 3.5rem !default;
+
+$display1-weight: 300 !default;
+$display2-weight: 300 !default;
+$display3-weight: 300 !default;
+$display4-weight: 300 !default;
+$display-line-height: $headings-line-height !default;
+
+$lead-font-size: $font-size-base * 1.25 !default;
+$lead-font-weight: 300 !default;
+
+$small-font-size: 0.875em !default;
+
+$sub-sup-font-size: 0.75em !default;
+
+$text-muted: $grey-6 !default;
+
+$initialism-font-size: $small-font-size !default;
+
+$blockquote-small-color: $grey-6 !default;
+$blockquote-small-font-size: $small-font-size !default;
+$blockquote-font-size: $font-size-base * 1.25 !default;
+
+$hr-color: inherit !default;
+$hr-height: 1px !default;
+$hr-opacity: 0.25 !default;
+
+$legend-margin-bottom: 0.5rem !default;
+$legend-font-size: 1.5rem !default;
+$legend-font-weight: null !default;
+
+$mark-padding: 0.2em !default;
+
+$dt-font-weight: $font-weight-bold !default;
+
+$nested-kbd-font-weight: $font-weight-bold !default;
+
+$list-inline-padding: 0.5rem !default;
+
+$mark-bg: #fcf8e3 !default;
+
+$hr-margin-y: $spacer !default;
+
+// Code
+
+$code-font-size: $small-font-size !default;
+$code-color: $pink !default;
+$pre-color: null !default;
+
+// options 可配置选项
+$enable-pointer-cursor-for-buttons: true !default;
+
+// 边框 和 border radius
+
+$border-width: 1px !default;
+$border-color: $grey-3 !default;
+
+$border-radius: 0.25rem !default;
+$border-radius-lg: 0.3rem !default;
+$border-radius-sm: 0.2rem !default;
+
+// 不同类型的 box shadow
+$box-shadow-sm: 0 0.125rem 0.25rem rgba($black, 0.075) !default;
+$box-shadow: 0 0.5rem 1rem rgba($black, 0.15) !default;
+$box-shadow-lg: 0 1rem 3rem rgba($black, 0.175) !default;
+$box-shadow-inset: inset 0 1px 2px rgba($black, 0.075) !default;
+
+// 按钮
+// 按钮基本属性
+$btn-font-weight: 400;
+$btn-padding-y: 0.375rem !default;
+$btn-padding-x: 0.75rem !default;
+$btn-font-family: $font-family-base !default;
+$btn-font-size: $font-size-base !default;
+$btn-line-height: $line-height-base !default;
+
+//不同大小按钮的 padding 和 font size
+$btn-padding-y-sm: 0.25rem !default;
+$btn-padding-x-sm: 0.5rem !default;
+$btn-font-size-sm: $font-size-sm !default;
+
+$btn-padding-y-lg: 0.5rem !default;
+$btn-padding-x-lg: 1rem !default;
+$btn-font-size-lg: $font-size-lg !default;
+
+// 按钮边框
+$btn-border-width: $border-width !default;
+
+// 按钮其他
+$btn-box-shadow: inset 0 1px 0 rgba($white, 0.15), 0 1px 1px rgba($black, 0.075) !default;
+$btn-disabled-opacity: 0.65 !default;
+
+// 链接按钮
+$btn-link-color: $link-color !default;
+$btn-link-hover-color: $link-hover-color !default;
+$btn-link-disabled-color: $grey-6 !default;
+
+// 按钮 radius
+$btn-border-radius: $border-radius !default;
+$btn-border-radius-lg: $border-radius-lg !default;
+$btn-border-radius-sm: $border-radius-sm !default;
+
+$btn-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+  border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out !default;
+
+// menu
+$menu-border-width: $border-width !default;
+$menu-border-color: $border-color !default;
+$menu-box-shadow: inset 0 1px 0 rgba($white, 0.15),
+  0 1px 1px rgba($black, 0.075) !default;
+$menu-transition: color 0.15s ease-in-out, border-color 0.15s ease-in-out !default;
+
+// menu-item
+$menu-item-padding-y: 0.5rem !default;
+$menu-item-padding-x: 1rem !default;
+$menu-item-active-color: $primary !default;
+$menu-item-active-border-width: 2px !default;
+$menu-item-disabled-color: $grey-6 !default;
+
+//sub-menu
+//submenu
+$submenu-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.12),
+  0 0 6px 0 rgba(0, 0, 0, 0.04);
+
+//input
+$input-padding-y: $btn-padding-y !default;
+$input-padding-x: $btn-padding-x !default;
+$input-font-family: $btn-font-family !default;
+$input-font-size: $btn-font-size !default;
+$input-font-weight: $font-weight-base !default;
+$input-line-height: $btn-line-height !default;
+
+$input-padding-y-sm: $btn-padding-y-sm !default;
+$input-padding-x-sm: $btn-padding-x-sm !default;
+$input-font-size-sm: $btn-font-size-sm !default;
+
+$input-padding-y-lg: $btn-padding-y-lg !default;
+$input-padding-x-lg: $btn-padding-x-lg !default;
+$input-font-size-lg: $btn-font-size-lg !default;
+
+$input-bg: $white !default;
+$input-disabled-bg: $grey-2 !default;
+$input-disabled-border-color: null !default;
+
+$input-color: $grey-7 !default;
+$input-border-color: $grey-4 !default;
+$input-border-width: $border-width !default;
+$input-box-shadow: $box-shadow-inset !default;
+
+$input-border-radius: $border-radius !default;
+$input-border-radius-lg: $border-radius-lg !default;
+$input-border-radius-sm: $border-radius-sm !default;
+
+$input-focus-bg: $input-bg !default;
+$input-focus-border-color: lighten($primary, 25%) !default;
+$input-focus-width: 0.2rem !default;
+$input-focus-color: $input-color !default;
+$input-focus-shadow-color: rgba($primary, 0.25) !default;
+$input-focus-box-shadow: 0 0 0 $input-focus-width $input-focus-shadow-color !default;
+
+$input-placeholder-color: $grey-6 !default;
+$input-plaintext-color: $body-color !default;
+
+$input-height-border: $input-border-width * 2 !default;
+
+$input-transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out !default;
+
+$input-group-addon-color: $input-color !default;
+$input-group-addon-bg: $grey-2 !default;
+$input-group-addon-border-color: $input-border-color !default;
+
+// Progress bars
+
+$progress-font-size: $font-size-base * 0.75 !default;
+$progress-bg: $grey-2 !default;
+$progress-border-radius: $border-radius !default;
+$progress-bar-color: $white !default;
+$progress-bar-transition: width 0.6s ease !default;
