@@ -1,0 +1,84 @@
+.wing-menu {
+  position: relative;
+  display: flex;
+  padding: 0;
+  transition: $menu-transition;
+}
+.wing-menu-horizontal {
+  border-bottom: $menu-border-width solid $menu-border-color;
+  .wing-menu-item {
+    min-width: max-content;
+    padding: 0 $menu-item-padding-x;
+    top: $menu-border-width;
+    border-bottom: $menu-item-active-border-width solid transparent;
+  }
+  > .wing-menu-item.is-selected {
+    border-bottom: $menu-item-active-border-width solid $menu-item-active-color;
+  }
+  .wing-submenu {
+    position: relative;
+    > .wing-submenu-content {
+      display: none;
+      position: absolute;
+      top: $menu-item-line-height;
+      left: 0;
+      box-shadow: $submenu-box-shadow;
+      background-color: $white;
+      > .wing-submenu > .wing-submenu-content {
+        position: absolute;
+        top: 0;
+        left: 100%;
+      }
+    }
+    &.is-open > .wing-submenu-content {
+      display: block;
+    }
+  }
+}
+.wing-menu-vertical {
+  flex-direction: column;
+  right: $menu-border-width;
+  border-right: $menu-border-width solid $menu-border-color;
+  .wing-menu-item {
+    right: -1 * $menu-border-width;
+    border-right: $menu-item-active-border-width solid transparent;
+    &.is-selected {
+      background-color: $menu-item-active-background-color;
+      border-right: $menu-item-active-border-width solid $menu-item-active-color;
+    }
+  }
+  .wing-submenu {
+    border-right: none;
+    right: 0;
+    > .wing-submenu-content {
+      display: none;
+    }
+    &.is-open > .wing-submenu-content {
+      display: block;
+    }
+  }
+}
+.wing-submenu-title.is-active {
+  color: $menu-item-active-color;
+}
+.wing-menu-item {
+  transition: $menu-transition;
+  position: relative;
+  line-height: $menu-item-line-height;
+  > span {
+    display: block;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+  cursor: pointer;
+  list-style: none;
+  &.is-active,
+  &.is-selected {
+    color: $menu-item-active-color;
+  }
+  &.is-disabled {
+    color: $menu-item-disabled-color;
+    cursor: not-allowed;
+  }
+}

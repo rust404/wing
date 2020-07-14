@@ -47,9 +47,16 @@ const Button: FC<ButtonProps> = (props) => {
     disabled: btnType === ButtonType.Link && disabled,
   });
 
+  const preventDefault = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+  };
   if (btnType === ButtonType.Link && href) {
     return (
-      <a className={classes} href={href} {...restProps}>
+      <a
+        {...restProps}
+        className={classes}
+        onClick={disabled === true ? preventDefault : restProps.onClick}
+      >
         {children}
       </a>
     );

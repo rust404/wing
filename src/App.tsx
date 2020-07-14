@@ -1,30 +1,52 @@
 import React from "react";
-import Button, { ButtonType, ButtonSize } from "./components/Button/button";
+import Menu from "./components/Menu/menu";
+import MenuItem from "./components/Menu/menuItem";
+import SubMenu from "./components/Menu/subMenu";
 
 function App() {
   return (
-    <div className="App">
+    <div className="App" style={{ width: "200px", margin: "0 auto" }}>
       <header className="App-header">
-        <Button>hello</Button>
-        <Button btnType={ButtonType.Danger}>hello</Button>
-        <Button size={ButtonSize.Large} btnType={ButtonType.Danger}>
-          hello
-        </Button>
-        <Button
-          onClick={() => console.log("hello, world")}
-          size={ButtonSize.Small}
-          btnType={ButtonType.Danger}
-        >
-          click
-        </Button>
-        <Button btnType={ButtonType.Primary}>hello</Button>
-        <Button
-          target="_blank"
-          btnType={ButtonType.Link}
-          href="https://www.baidu.com"
-        >
-          link
-        </Button>
+        <Menu>
+          <MenuItem disabled>123</MenuItem>
+          <MenuItem>456</MenuItem>
+          <MenuItem>789</MenuItem>
+          <SubMenu title="hello1">
+            <MenuItem>sub-1</MenuItem>
+            <MenuItem>sub-2</MenuItem>
+            <MenuItem>sub-3</MenuItem>
+            <SubMenu title="hello2">
+              <MenuItem>sub-1</MenuItem>
+              <MenuItem>sub-2</MenuItem>
+              <MenuItem>sub-3</MenuItem>
+              <SubMenu title="hello3">
+                <MenuItem>sub-1</MenuItem>
+                <MenuItem>sub-2</MenuItem>
+                <MenuItem>sub-3</MenuItem>
+              </SubMenu>
+            </SubMenu>
+          </SubMenu>
+        </Menu>
+        <Menu mode="vertical" onSelect={(index) => console.log(index)}>
+          <SubMenu title="hello">
+            <MenuItem disabled>sub-1</MenuItem>
+            <MenuItem>sub-2</MenuItem>
+            <MenuItem>sub-3</MenuItem>
+            <SubMenu title="hello1">
+              <MenuItem disabled>sub-1</MenuItem>
+              <MenuItem>sub-2</MenuItem>
+              <MenuItem>sub-3</MenuItem>
+              <SubMenu title="hello2">
+                <MenuItem>sub-1</MenuItem>
+                <MenuItem>sub-2</MenuItem>
+                <MenuItem>sub-3</MenuItem>
+              </SubMenu>
+            </SubMenu>
+          </SubMenu>
+          <MenuItem disabled>123</MenuItem>
+          <MenuItem>456</MenuItem>
+          <MenuItem>789</MenuItem>
+        </Menu>
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>

@@ -1,3 +1,4 @@
+@use "sass:color";
 $amber-1: #fff8e1;
 $amber-2: #ffecb3;
 $amber-3: #ffe082;
@@ -222,7 +223,6 @@ $warning: $amber;
 $success: $green;
 $danger: $red;
 $info: $lightBlue;
-
 $font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
   "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
   "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
@@ -397,12 +397,16 @@ $menu-border-width: $border-width !default;
 $menu-border-color: $border-color !default;
 $menu-box-shadow: inset 0 1px 0 rgba($white, 0.15),
   0 1px 1px rgba($black, 0.075) !default;
-$menu-transition: color 0.15s ease-in-out, border-color 0.15s ease-in-out !default;
+$menu-transition: all 0.25s ease-in-out !default;
 
 // menu-item
-$menu-item-padding-y: 0.5rem !default;
-$menu-item-padding-x: 1rem !default;
+$menu-item-line-height: 46px;
+$menu-item-padding-x: 20px !default;
 $menu-item-active-color: $primary !default;
+$menu-item-active-background-color: color.scale(
+  $primary,
+  $lightness: 85%
+) !default;
 $menu-item-active-border-width: 2px !default;
 $menu-item-disabled-color: $grey-6 !default;
 
@@ -410,6 +414,7 @@ $menu-item-disabled-color: $grey-6 !default;
 //submenu
 $submenu-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.12),
   0 0 6px 0 rgba(0, 0, 0, 0.04);
+$vertical-submenu-padding-left: 48px;
 
 //input
 $input-padding-y: $btn-padding-y !default;
