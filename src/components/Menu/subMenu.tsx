@@ -4,6 +4,7 @@ import React, {
   useState,
   useContext,
   useRef,
+  useEffect,
 } from "react";
 import classNames from "classnames";
 import { MenuItemProps } from "./menuItem";
@@ -24,10 +25,31 @@ const SubMenu: FC<SubMenuProps> = (props) => {
     ...restProps
   } = props;
   const [open, setOpen] = useState(false);
-  const { selectedIndex, mode } = useContext(MenuContext);
+  const { selectedIndex, mode, updateState } = useContext(MenuContext);
   const domRef = useRef<HTMLLIElement>(null);
+  const timerRef = useRef({
+    enter: -1,
+    leave: -1,
+  });
+  const onEnter = () => {
+    window.clearTimeout(timerRef.current.enter);
+    timerRef.current.enter = window.setTimeout(() => {
+      mode === "horizontal" && setOpen(true);
+    }, 300);
+  };
+  const onLeave = () => {
+    window.clearTimeout(timerRef.current.leave);
+    timerRef.current.enter = window.setTimeout(() => {
+      mode === "horizontal" && setOpen(false);
+    }, 300);
+  };
+  useEffect(() => {
+    setTimeout(() => {
+      setOpen(false);
+    }, 100);
+  }, [updateState]);
   useClickOutside(() => {
-    mode === "horizontal" && setOpen(false);
+    mode === "vertical" && setOpen(false);
   }, domRef);
 
   const classes = classNames("wing-menu-item wing-submenu", className, {
@@ -40,12 +62,18 @@ const SubMenu: FC<SubMenuProps> = (props) => {
         : selectedIndex.indexOf(parentIndex) === 0,
   });
   const handleClickTitle = () => {
-    setOpen((state) => !state);
+    mode === "vertical" && setOpen((state) => !state);
   };
   const hiererchy =
     parentIndex === undefined ? 1 : parentIndex.split("-").length;
   return (
-    <li className={classes} {...restProps} ref={domRef}>
+    <li
+      className={classes}
+      {...restProps}
+      ref={domRef}
+      onMouseEnter={onEnter}
+      onMouseLeave={onLeave}
+    >
       <div
         className={titleClasses}
         style={

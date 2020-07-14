@@ -72,8 +72,11 @@
     }
   }
 }
-.wing-submenu-title.is-active {
-  color: $menu-item-active-color;
+.wing-submenu-title {
+  &:hover,
+  &.is-active {
+    color: $menu-item-active-color;
+  }
 }
 .wing-menu-item {
   transition: $menu-transition;

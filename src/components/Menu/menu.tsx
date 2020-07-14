@@ -8,6 +8,7 @@ import React, {
 import { MenuItemProps } from "./menuItem";
 import { SubMenuProps } from "./subMenu";
 import classNames from "classnames";
+import useToggle from "../../hooks/useToggle";
 
 type MenuMode = "horizontal" | "vertical";
 type SelectHandler = (index: string) => void;
@@ -23,18 +24,24 @@ interface IMenuContext {
   selectedIndex: string;
   handleSelect: SelectHandler;
   mode: MenuMode;
+  updateState: boolean;
 }
 export const MenuContext = createContext<IMenuContext>({
   selectedIndex: "",
   handleSelect: () => {},
   mode: "horizontal",
+  // toggle 从而使子组件知道有选项被点击了
+  updateState: true,
 });
 
 const Menu: FC<IMenuProps> = (props) => {
   const { mode, onSelect, style, className, children, ...restProps } = props;
   const [selectedIndex, setSelectedIndex] = useState("");
+  const [updateState, toggleUpdateState] = useToggle();
+
   const handleSelect: SelectHandler = (index: string) => {
     setSelectedIndex(index);
+    toggleUpdateState();
     onSelect && onSelect(index);
   };
   const classes = classNames("wing-menu", className, {
@@ -44,7 +51,12 @@ const Menu: FC<IMenuProps> = (props) => {
   return (
     <ul className={classes} style={style} {...restProps}>
       <MenuContext.Provider
-        value={{ mode: mode || "horizontal", selectedIndex, handleSelect }}
+        value={{
+          mode: mode || "horizontal",
+          selectedIndex,
+          handleSelect,
+          updateState,
+        }}
       >
         {React.Children.map(children, (child, index) => {
           const childElement = child as FunctionComponentElement<
