@@ -3,10 +3,12 @@ import React, {
   FunctionComponentElement,
   useState,
   useContext,
+  useRef,
 } from "react";
 import classNames from "classnames";
 import { MenuItemProps } from "./menuItem";
 import { MenuContext } from "./menu";
+import useClickOutside from "../../hooks/useClickOutside";
 
 export interface SubMenuProps {
   title: string;
@@ -23,6 +25,11 @@ const SubMenu: FC<SubMenuProps> = (props) => {
   } = props;
   const [open, setOpen] = useState(false);
   const { selectedIndex, mode } = useContext(MenuContext);
+  const domRef = useRef<HTMLLIElement>(null);
+  useClickOutside(() => {
+    mode === "horizontal" && setOpen(false);
+  }, domRef);
+
   const classes = classNames("wing-menu-item wing-submenu", className, {
     "is-open": open,
   });
@@ -38,7 +45,7 @@ const SubMenu: FC<SubMenuProps> = (props) => {
   const hiererchy =
     parentIndex === undefined ? 1 : parentIndex.split("-").length;
   return (
-    <li className={classes} {...restProps}>
+    <li className={classes} {...restProps} ref={domRef}>
       <div
         className={titleClasses}
         style={

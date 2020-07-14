@@ -1,4 +1,4 @@
-import React, { FC, CSSProperties, useContext } from "react";
+import React, { FC, CSSProperties, useContext, useState } from "react";
 import classNames from "classnames";
 import { MenuContext } from "./menu";
 
@@ -14,9 +14,17 @@ export interface MenuItemProps
 const MenuItem: FC<MenuItemProps> = (props) => {
   const { selectedIndex, handleSelect, mode } = useContext(MenuContext);
   const { index, disabled, style, className, onClick, children } = props;
+  const [isHover, setIsHover] = useState(false);
+  const onEnter = () => {
+    setIsHover(true);
+  };
+  const onLeave = () => {
+    setIsHover(false);
+  };
   const classes = classNames("wing-menu-item", className, {
     "is-disabled": disabled,
     "is-selected": disabled !== true && selectedIndex === index,
+    "is-active": isHover ? true : false,
   });
   const handleClick = (e: React.MouseEvent<HTMLLIElement>) => {
     e.preventDefault();
@@ -31,7 +39,13 @@ const MenuItem: FC<MenuItemProps> = (props) => {
     mode === "vertical" ? { paddingLeft: hiererchy * 20 + "px" } : {};
 
   return (
-    <li className={classes} style={style} onClick={handleClick}>
+    <li
+      onMouseEnter={onEnter}
+      onMouseLeave={onLeave}
+      className={classes}
+      style={style}
+      onClick={handleClick}
+    >
       <span style={{ ...spanStyle }}>
         {children}
         ---

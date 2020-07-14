@@ -5,7 +5,7 @@ import SubMenu from "./components/Menu/subMenu";
 
 function App() {
   return (
-    <div className="App" style={{ width: "200px", margin: "0 auto" }}>
+    <div className="App" style={{ width: "80vw", margin: "0 auto" }}>
       <header className="App-header">
         <Menu>
           <MenuItem disabled>123</MenuItem>

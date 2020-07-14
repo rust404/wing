@@ -2,21 +2,31 @@
   position: relative;
   display: flex;
   padding: 0;
-  transition: $menu-transition;
+  user-select: none;
 }
 .wing-menu-horizontal {
   border-bottom: $menu-border-width solid $menu-border-color;
   .wing-menu-item {
     min-width: max-content;
-    padding: 0 $menu-item-padding-x;
     top: $menu-border-width;
     border-bottom: $menu-item-active-border-width solid transparent;
+    > span {
+      transition: $menu-transition;
+      padding: 0 $menu-item-padding-x;
+      &:active {
+        background-color: $menu-item-active-background-color;
+      }
+    }
   }
   > .wing-menu-item.is-selected {
     border-bottom: $menu-item-active-border-width solid $menu-item-active-color;
   }
   .wing-submenu {
     position: relative;
+    z-index: 2;
+    > .wing-submenu-title {
+      padding: 0 $menu-item-padding-x;
+    }
     > .wing-submenu-content {
       display: none;
       position: absolute;
@@ -41,8 +51,12 @@
   border-right: $menu-border-width solid $menu-border-color;
   .wing-menu-item {
     right: -1 * $menu-border-width;
-    border-right: $menu-item-active-border-width solid transparent;
-    &.is-selected {
+    > span {
+      transition: $menu-transition;
+      border-right: $menu-item-active-border-width solid transparent;
+    }
+    &:not([class*="is-disabled"]) > span:active,
+    &.is-selected > span {
       background-color: $menu-item-active-background-color;
       border-right: $menu-item-active-border-width solid $menu-item-active-color;
     }
