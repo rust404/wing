@@ -28,7 +28,6 @@
       padding: 0 $menu-item-padding-x;
     }
     > .wing-submenu-content {
-      display: none;
       position: absolute;
       top: $menu-item-line-height;
       left: 0;
@@ -40,8 +39,12 @@
         left: 100%;
       }
     }
-    &.is-open > .wing-submenu-content {
-      display: block;
+  }
+  > .wing-submenu {
+    &:hover,
+    &.is-active {
+      border-bottom: $menu-item-active-border-width solid
+        $menu-item-active-color;
     }
   }
 }
@@ -64,12 +67,6 @@
   .wing-submenu {
     border-right: none;
     right: 0;
-    > .wing-submenu-content {
-      display: none;
-    }
-    &.is-open > .wing-submenu-content {
-      display: block;
-    }
   }
 }
 .wing-submenu-title {
@@ -79,6 +76,7 @@
   }
 }
 .wing-menu-item {
+  color: $black;
   transition: $menu-transition;
   position: relative;
   line-height: $menu-item-line-height;

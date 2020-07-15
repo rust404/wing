@@ -5,15 +5,25 @@ import { MenuContext } from "./menu";
 export interface MenuItemProps
   extends Omit<React.HTMLProps<HTMLLIElement>, "onClick"> {
   index?: string;
+  itemKey?: string;
   disabled?: boolean;
   style?: CSSProperties;
   className?: string;
-  onClick?: (index: string) => void;
+  onClick?: (e: React.MouseEvent<Element>) => void;
 }
 
 const MenuItem: FC<MenuItemProps> = (props) => {
   const { selectedIndex, handleSelect, mode } = useContext(MenuContext);
-  const { index, disabled, style, className, onClick, children } = props;
+  const {
+    index,
+    disabled,
+    style,
+    className,
+    onClick,
+    children,
+    itemKey,
+    ...restProps
+  } = props;
   const [isHover, setIsHover] = useState(false);
   const onEnter = () => {
     setIsHover(true);
@@ -30,8 +40,13 @@ const MenuItem: FC<MenuItemProps> = (props) => {
     e.preventDefault();
     if (disabled) return;
     if (index !== undefined) {
-      handleSelect(index);
-      onClick && onClick(index);
+      console.log("menu-item:", props);
+      handleSelect({
+        itemKey: itemKey || "",
+        index,
+        e,
+      });
+      onClick && onClick(e);
     }
   };
   const hiererchy = index === undefined ? 1 : index.split("-").length;
@@ -45,6 +60,7 @@ const MenuItem: FC<MenuItemProps> = (props) => {
       className={classes}
       style={style}
       onClick={handleClick}
+      {...restProps}
     >
       <span style={{ ...spanStyle }}>
         {children}

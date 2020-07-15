@@ -11,13 +11,17 @@ import classNames from "classnames";
 import useToggle from "../../hooks/useToggle";
 
 type MenuMode = "horizontal" | "vertical";
-type SelectHandler = (index: string) => void;
+type SelectHandler = (obj: {
+  itemKey: string;
+  index: string;
+  e: React.MouseEvent<Element>;
+}) => void;
 
 export interface IMenuProps {
   mode?: MenuMode;
   style?: CSSProperties;
   className?: string;
-  onSelect?: SelectHandler;
+  onSelect?: (obj: { itemKey: string; e: React.MouseEvent<Element> }) => void;
 }
 
 interface IMenuContext {
@@ -39,10 +43,14 @@ const Menu: FC<IMenuProps> = (props) => {
   const [selectedIndex, setSelectedIndex] = useState("");
   const [updateState, toggleUpdateState] = useToggle();
 
-  const handleSelect: SelectHandler = (index: string) => {
+  const handleSelect: SelectHandler = ({ itemKey, index, e }) => {
     setSelectedIndex(index);
     toggleUpdateState();
-    onSelect && onSelect(index);
+    onSelect &&
+      onSelect({
+        itemKey,
+        e,
+      });
   };
   const classes = classNames("wing-menu", className, {
     "wing-menu-horizontal": mode === "horizontal",

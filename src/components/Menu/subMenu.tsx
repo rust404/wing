@@ -10,6 +10,7 @@ import classNames from "classnames";
 import { MenuItemProps } from "./menuItem";
 import { MenuContext } from "./menu";
 import useClickOutside from "../../hooks/useClickOutside";
+import { CSSTransition } from "react-transition-group";
 
 export interface SubMenuProps {
   title: string;
@@ -32,34 +33,44 @@ const SubMenu: FC<SubMenuProps> = (props) => {
     leave: -1,
   });
   const onEnter = () => {
-    window.clearTimeout(timerRef.current.enter);
-    timerRef.current.enter = window.setTimeout(() => {
-      mode === "horizontal" && setOpen(true);
-    }, 300);
+    mode === "horizontal" && setOpen(true);
   };
   const onLeave = () => {
     window.clearTimeout(timerRef.current.leave);
-    timerRef.current.enter = window.setTimeout(() => {
+    timerRef.current.leave = window.setTimeout(() => {
       mode === "horizontal" && setOpen(false);
     }, 300);
   };
   useEffect(() => {
+    if (mode === "vertical") return;
     setTimeout(() => {
       setOpen(false);
     }, 100);
-  }, [updateState]);
+  }, [updateState, mode]);
   useClickOutside(() => {
     mode === "vertical" && setOpen(false);
   }, domRef);
 
+  const isActive = () => {
+    if (mode === "vertical") {
+      return parentIndex === undefined
+        ? false
+        : selectedIndex.indexOf(parentIndex) === 0;
+    } else {
+      return (
+        open ||
+        (parentIndex === undefined
+          ? false
+          : selectedIndex.indexOf(parentIndex) === 0)
+      );
+    }
+  };
   const classes = classNames("wing-menu-item wing-submenu", className, {
     "is-open": open,
+    "is-active": isActive(),
   });
   const titleClasses = classNames("wing-submenu-title", {
-    "is-active":
-      parentIndex === undefined
-        ? false
-        : selectedIndex.indexOf(parentIndex) === 0,
+    "is-active": isActive(),
   });
   const handleClickTitle = () => {
     mode === "vertical" && setOpen((state) => !state);
@@ -83,23 +94,31 @@ const SubMenu: FC<SubMenuProps> = (props) => {
       >
         {title}
       </div>
-      <ul className="wing-submenu-content">
-        {React.Children.map(children, (child, index) => {
-          const childElement = child as FunctionComponentElement<
-            MenuItemProps | SubMenuProps
-          >;
-          const { displayName } = childElement.type;
-          if (displayName === "MenuItem" || displayName === "SubMenu") {
-            return React.cloneElement(childElement, {
-              index: `${parentIndex}-${index}`,
-            });
-          } else {
-            console.error(
-              "Warning: Menu has a child which is not a MenuItem or SubMenu"
-            );
-          }
-        })}
-      </ul>
+      <CSSTransition
+        timeout={mode === "horizontal" ? 300 : 0}
+        classNames={mode === "horizontal" ? "zoom-in-top" : ""}
+        in={open}
+        appear
+        unmountOnExit
+      >
+        <ul className="wing-submenu-content">
+          {React.Children.map(children, (child, index) => {
+            const childElement = child as FunctionComponentElement<
+              MenuItemProps | SubMenuProps
+            >;
+            const { displayName } = childElement.type;
+            if (displayName === "MenuItem" || displayName === "SubMenu") {
+              return React.cloneElement(childElement, {
+                index: `${parentIndex}-${index}`,
+              });
+            } else {
+              console.error(
+                "Warning: Menu has a child which is not a MenuItem or SubMenu"
+              );
+            }
+          })}
+        </ul>
+      </CSSTransition>
     </li>
   );
 };

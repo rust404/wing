@@ -9,7 +9,9 @@ function App() {
       <header className="App-header">
         <Menu>
           <MenuItem disabled>123</MenuItem>
-          <MenuItem>456</MenuItem>
+          <MenuItem itemKey="1" data-test="123">
+            456
+          </MenuItem>
           <MenuItem>789</MenuItem>
           <SubMenu title="hello1">
             <MenuItem>sub-1</MenuItem>
