@@ -91,3 +91,6 @@
 .btn-danger {
   @include button-color($danger, $danger, $white);
 }
+// .btn-link {
+//   @include button-color($white, $white, $primary);
+// }

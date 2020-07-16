@@ -5,13 +5,8 @@ import "@testing-library/jest-dom";
 
 let testid = 0;
 describe("test Button component", () => {
-  const types = [
-    ButtonType.Danger,
-    ButtonType.Default,
-    ButtonType.Link,
-    ButtonType.Primary,
-  ];
-  const sizes = [ButtonSize.Large, ButtonSize.Small];
+  const types: ButtonType[] = ["danger", "default", "link", "primary"];
+  const sizes: ButtonSize[] = ["lg", "sm"];
   it("should render correct by default", () => {
     render(<Button data-testid={testid}>nice</Button>);
     const element = screen.getByTestId("" + testid++) as HTMLButtonElement;
@@ -41,11 +36,7 @@ describe("test Button component", () => {
   });
   it("should render link with type link and href", () => {
     render(
-      <Button
-        data-testid={testid}
-        btnType={ButtonType.Link}
-        href="https://www.baidu.com"
-      >
+      <Button data-testid={testid} btnType="link" href="https://www.baidu.com">
         link
       </Button>
     );
@@ -54,7 +45,7 @@ describe("test Button component", () => {
   });
   it("should render button with type link and no href", () => {
     render(
-      <Button data-testid={testid} btnType={ButtonType.Link}>
+      <Button data-testid={testid} btnType="link">
         link without href
       </Button>
     );
