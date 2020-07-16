@@ -11,6 +11,7 @@ import { MenuItemProps } from "./menuItem";
 import { MenuContext } from "./menu";
 import useClickOutside from "../../hooks/useClickOutside";
 import { CSSTransition } from "react-transition-group";
+import Icon from "../Icon/icon";
 
 export interface SubMenuProps {
   title: string;
@@ -33,6 +34,7 @@ const SubMenu: FC<SubMenuProps> = (props) => {
     leave: -1,
   });
   const onEnter = () => {
+    window.clearTimeout(timerRef.current.leave);
     mode === "horizontal" && setOpen(true);
   };
   const onLeave = () => {
@@ -93,6 +95,7 @@ const SubMenu: FC<SubMenuProps> = (props) => {
         onClick={handleClickTitle}
       >
         {title}
+        <Icon icon="angle-down" className="wing-submenu-title-icon" />
       </div>
       <CSSTransition
         timeout={mode === "horizontal" ? 300 : 0}

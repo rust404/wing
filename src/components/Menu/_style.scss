@@ -13,9 +13,9 @@
     > span {
       transition: $menu-transition;
       padding: 0 $menu-item-padding-x;
-      &:active {
-        background-color: $menu-item-active-background-color;
-      }
+    }
+    &:not([class*="is-disabled"]) > span:active {
+      background-color: $menu-item-active-background-color;
     }
   }
   > .wing-menu-item.is-selected {
@@ -29,7 +29,7 @@
     }
     > .wing-submenu-content {
       position: absolute;
-      top: $menu-item-line-height;
+      top: $menu-item-line-height + 10px;
       left: 0;
       box-shadow: $submenu-box-shadow;
       background-color: $white;
@@ -53,7 +53,6 @@
   right: $menu-border-width;
   border-right: $menu-border-width solid $menu-border-color;
   .wing-menu-item {
-    right: -1 * $menu-border-width;
     > span {
       transition: $menu-transition;
       border-right: $menu-item-active-border-width solid transparent;
@@ -66,7 +65,6 @@
   }
   .wing-submenu {
     border-right: none;
-    right: 0;
   }
 }
 .wing-submenu-title {
@@ -88,12 +86,27 @@
   }
   cursor: pointer;
   list-style: none;
-  &.is-active,
   &.is-selected {
     color: $menu-item-active-color;
   }
   &.is-disabled {
     color: $menu-item-disabled-color;
     cursor: not-allowed;
+    &:hover,
+    &:active {
+      color: $menu-item-disabled-color;
+    }
+  }
+  &:hover {
+    color: $menu-item-active-color;
+  }
+}
+.wing-submenu {
+  > .wing-submenu-title > .wing-submenu-title-icon {
+    margin-left: 4px;
+    transition: transform ease-in 200ms;
+  }
+  &.is-open > .wing-submenu-title > .wing-submenu-title-icon {
+    transform: rotate(180deg);
   }
 }

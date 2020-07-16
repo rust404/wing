@@ -223,6 +223,16 @@ $warning: $amber;
 $success: $green;
 $danger: $red;
 $info: $lightBlue;
+
+$theme: (
+  primary: $primary,
+  secondary: $secondary,
+  warning: $warning,
+  success: $success,
+  danger: $danger,
+  info: $info,
+);
+
 $font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
   "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
   "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;

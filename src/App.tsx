@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="App" style={{ width: "80vw", margin: "0 auto" }}>
       <header className="App-header">
-        <Menu>
+        <Menu mode="vertical">
           <MenuItem disabled>123</MenuItem>
           <MenuItem itemKey="1" data-test="123">
             456
@@ -28,26 +28,6 @@ function App() {
               </SubMenu>
             </SubMenu>
           </SubMenu>
-        </Menu>
-        <Menu mode="vertical" onSelect={(index) => console.log(index)}>
-          <SubMenu title="hello">
-            <MenuItem disabled>sub-1</MenuItem>
-            <MenuItem>sub-2</MenuItem>
-            <MenuItem>sub-3</MenuItem>
-            <SubMenu title="hello1">
-              <MenuItem disabled>sub-1</MenuItem>
-              <MenuItem>sub-2</MenuItem>
-              <MenuItem>sub-3</MenuItem>
-              <SubMenu title="hello2">
-                <MenuItem>sub-1</MenuItem>
-                <MenuItem>sub-2</MenuItem>
-                <MenuItem>sub-3</MenuItem>
-              </SubMenu>
-            </SubMenu>
-          </SubMenu>
-          <MenuItem disabled>123</MenuItem>
-          <MenuItem>456</MenuItem>
-          <MenuItem>789</MenuItem>
         </Menu>
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
