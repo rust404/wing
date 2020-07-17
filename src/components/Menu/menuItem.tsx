@@ -1,4 +1,4 @@
-import React, { FC, CSSProperties, useContext } from "react";
+import React, { FC, CSSProperties, useContext, MouseEvent } from "react";
 import classNames from "classnames";
 import { MenuContext } from "./menu";
 
@@ -9,10 +9,10 @@ export interface MenuItemProps
   disabled?: boolean;
   style?: CSSProperties;
   className?: string;
-  onClick?: (e: React.MouseEvent<Element>) => void;
+  onClick?: (e: MouseEvent<Element>) => void;
 }
 
-const MenuItem: FC<MenuItemProps> = (props) => {
+export const MenuItem: FC<MenuItemProps> = (props) => {
   const { selectedIndex, handleSelect, mode } = useContext(MenuContext);
   const {
     index,
@@ -47,11 +47,7 @@ const MenuItem: FC<MenuItemProps> = (props) => {
 
   return (
     <li className={classes} style={style} onClick={handleClick} {...restProps}>
-      <span style={{ ...spanStyle }}>
-        {children}
-        ---
-        {index}
-      </span>
+      <span style={{ ...spanStyle }}>{children}</span>
     </li>
   );
 };

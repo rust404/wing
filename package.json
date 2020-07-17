@@ -19,6 +19,7 @@
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1",
     "react-transition-group": "^4.4.1",
+    "storybook-addon-react-docgen": "^1.2.41",
     "typescript": "^3.7.5"
   },
   "scripts": {
@@ -26,7 +27,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jest-environment-jsdom-sixteen",
     "eject": "react-scripts eject",
-    "storybook": "start-storybook -p 9009 -s public",
+    "storybook": "start-storybook -p 9009 -s public --ci",
     "build-storybook": "build-storybook -s public"
   },
   "eslintConfig": {

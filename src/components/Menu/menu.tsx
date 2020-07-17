@@ -4,6 +4,7 @@ import React, {
   useState,
   createContext,
   FunctionComponentElement,
+  MouseEvent,
 } from "react";
 import { MenuItemProps } from "./menuItem";
 import { SubMenuProps } from "./subMenu";
@@ -21,7 +22,7 @@ export interface IMenuProps {
   mode?: MenuMode;
   style?: CSSProperties;
   className?: string;
-  onSelect?: (obj: { itemKey: string; e: React.MouseEvent<Element> }) => void;
+  onSelect?: (obj: { itemKey: string; e: MouseEvent<Element> }) => void;
 }
 
 interface IMenuContext {
@@ -38,9 +39,9 @@ export const MenuContext = createContext<IMenuContext>({
   updateState: true,
 });
 
-const Menu: FC<IMenuProps> = (props) => {
+export const Menu: FC<IMenuProps> = (props) => {
   const { mode, onSelect, style, className, children, ...restProps } = props;
-  const [selectedIndex, setSelectedIndex] = useState("");
+  const [selectedIndex, setSelectedIndex] = useState("0");
   const [updateState, toggleUpdateState] = useToggle();
 
   const handleSelect: SelectHandler = ({ itemKey, index, e }) => {
@@ -71,7 +72,13 @@ const Menu: FC<IMenuProps> = (props) => {
             MenuItemProps | SubMenuProps
           >;
           const { displayName } = childElement.type;
-          if (displayName === "MenuItem" || displayName === "SubMenu") {
+          console.log("display", displayName);
+          // 兼容MDX语法
+          if (
+            displayName === "MenuItem" ||
+            displayName === "SubMenu" ||
+            displayName === "MDXCreateElement"
+          ) {
             return React.cloneElement(childElement, {
               index: index + "",
             });

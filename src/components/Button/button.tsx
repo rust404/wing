@@ -11,10 +11,15 @@ export type ButtonSize = "lg" | "sm";
 export type ButtonType = "primary" | "default" | "danger" | "link";
 
 interface BaseButtonProps {
+  /** 自定义类名 */
   className?: string;
+  /** 尺寸大小 */
   size?: ButtonSize;
+  /** 按钮类型 */
   btnType?: ButtonType;
+  /** 是否禁用 */
   disabled?: boolean;
+  /** 外部链接，link按钮专用 */
   href?: string;
   children?: ReactNode;
 }
@@ -23,7 +28,8 @@ type NativeButtonProps = BaseButtonProps & ButtonHTMLAttributes<HTMLElement>;
 type AnchorButtonProps = BaseButtonProps & AnchorHTMLAttributes<HTMLElement>;
 
 export type ButtonProps = Partial<NativeButtonProps & AnchorButtonProps>;
-const Button: FC<ButtonProps> = (props) => {
+
+export const Button: FC<ButtonProps> = (props) => {
   const {
     className,
     size,

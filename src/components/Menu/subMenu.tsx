@@ -18,7 +18,7 @@ export interface SubMenuProps {
   className?: string;
   index?: string;
 }
-const SubMenu: FC<SubMenuProps> = (props) => {
+export const SubMenu: FC<SubMenuProps> = (props) => {
   const {
     title,
     className,
@@ -110,7 +110,12 @@ const SubMenu: FC<SubMenuProps> = (props) => {
               MenuItemProps | SubMenuProps
             >;
             const { displayName } = childElement.type;
-            if (displayName === "MenuItem" || displayName === "SubMenu") {
+            // 兼容MDX语法
+            if (
+              displayName === "MenuItem" ||
+              displayName === "SubMenu" ||
+              displayName === "MDXCreateElement"
+            ) {
               return React.cloneElement(childElement, {
                 index: `${parentIndex}-${index}`,
               });

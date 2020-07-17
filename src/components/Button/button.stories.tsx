@@ -17,7 +17,7 @@ export const TypeButton = () => (
 );
 
 TypeButton.story = {
-  name: "btnType",
+  name: "类型",
 };
 
 export const SizeButton = () => (
@@ -33,7 +33,7 @@ export const SizeButton = () => (
 );
 
 SizeButton.story = {
-  name: "size",
+  name: "尺寸",
 };
 
 export const DisabledButton = () => (
@@ -56,5 +56,5 @@ export const DisabledButton = () => (
 );
 
 DisabledButton.story = {
-  name: "disabled",
+  name: "状态",
 };

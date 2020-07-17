@@ -1,0 +1,79 @@
+import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
+import { Menu } from "./menu";
+import MenuItem from "./menuItem";
+import { SubMenu } from "./subMenu";
+import "../../styles/index.scss";
+
+<Meta title="Wing/Menu 菜单" component={Menu} />
+
+# Menu 导航菜单
+
+导航菜单一般用于在网站内的跳转，一般分为**顶部导航**和**侧边导航**
+
+## 模式选择
+
+Menu 组件有水平、垂直两种模式选择，水平模式一般用于顶部导航，而垂直模式一般用于侧边导航
+
+<Preview>
+  <div>
+    <Menu>
+      <MenuItem>新闻</MenuItem>
+      <MenuItem>视频</MenuItem>
+      <MenuItem>图片</MenuItem>
+    </Menu>
+    <br />
+    <Menu mode="vertical">
+      <MenuItem>新闻</MenuItem>
+      <MenuItem>视频</MenuItem>
+      <MenuItem>图片</MenuItem>
+    </Menu>
+  </div>
+</Preview>
+
+## 内嵌菜单
+
+内嵌菜单在水平和垂直模式的展现会有所不同，水平菜单中会以弹出的形式出现，而垂直菜单则会以展开的形式出现。同时，内嵌菜单支持多级内嵌。
+
+<Preview>
+  <div>
+    <Menu>
+      <MenuItem>新闻</MenuItem>
+      <MenuItem>视频</MenuItem>
+      <MenuItem>图片</MenuItem>
+      <SubMenu title="娱乐">
+        <SubMenu title="影视">
+          <MenuItem>影视杂谈</MenuItem>
+          <MenuItem>影视剪辑</MenuItem>
+          <MenuItem>预告、资讯</MenuItem>
+        </SubMenu>
+        <MenuItem>音乐</MenuItem>
+      </SubMenu>
+    </Menu>
+    <br />
+    <Menu mode="vertical">
+      <MenuItem>新闻</MenuItem>
+      <MenuItem>视频</MenuItem>
+      <MenuItem>图片</MenuItem>
+      <SubMenu title="娱乐">
+        <SubMenu title="影视">
+          <MenuItem>影视杂谈</MenuItem>
+          <MenuItem>影视剪辑</MenuItem>
+          <MenuItem>预告、资讯</MenuItem>
+        </SubMenu>
+        <MenuItem>音乐</MenuItem>
+      </SubMenu>
+    </Menu>
+  </div>
+</Preview>
+
+## Menu 参数
+
+<Props of={Menu} />
+
+## SubMenu 参数
+
+<Props of={SubMenu} />
+
+## MenuItem 参数
+
+<Props of={MenuItem} />
