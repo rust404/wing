@@ -5,6 +5,7 @@ import React, {
   useContext,
   useRef,
   useEffect,
+  Props,
 } from "react";
 import classNames from "classnames";
 import { MenuItemProps } from "./menuItem";
@@ -13,9 +14,12 @@ import useClickOutside from "../../hooks/useClickOutside";
 import { CSSTransition } from "react-transition-group";
 import Icon from "../Icon/icon";
 
-export interface SubMenuProps {
+export interface SubMenuProps extends Props<HTMLLIElement> {
   title: string;
   className?: string;
+  /**
+   * @ignore
+   */
   index?: string;
 }
 export const SubMenu: FC<SubMenuProps> = (props) => {

@@ -20,3 +20,27 @@
   transform-origin: top;
   transition: all linear 200ms;
 }
+
+.unfold-enter {
+  max-height: 0;
+  overflow: hidden;
+}
+.unfold-enter-active {
+  max-height: 200px;
+  transition: max-height linear 200ms;
+}
+.unfold-enter-done {
+  max-height: 200px;
+}
+// .unfold-exit {
+//   height: auto;
+// }
+.unfold-exit-active {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height linear 200ms;
+}
+.unfold-exit-done {
+  max-height: 0;
+  overflow: hidden;
+}

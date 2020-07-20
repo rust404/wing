@@ -5,6 +5,7 @@ import React, {
   createContext,
   FunctionComponentElement,
   MouseEvent,
+  Props,
 } from "react";
 import { MenuItemProps } from "./menuItem";
 import { SubMenuProps } from "./subMenu";
@@ -18,7 +19,7 @@ type SelectHandler = (obj: {
   e: React.MouseEvent<Element>;
 }) => void;
 
-export interface IMenuProps {
+export interface IMenuProps extends Props<HTMLUListElement> {
   mode?: MenuMode;
   style?: CSSProperties;
   className?: string;

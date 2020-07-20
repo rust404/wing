@@ -1,9 +1,11 @@
-import React, { FC, CSSProperties, useContext, MouseEvent } from "react";
+import React, { FC, CSSProperties, useContext, MouseEvent, Props } from "react";
 import classNames from "classnames";
 import { MenuContext } from "./menu";
 
-export interface MenuItemProps
-  extends Omit<React.HTMLProps<HTMLLIElement>, "onClick"> {
+export interface MenuItemProps extends Props<HTMLLIElement> {
+  /**
+   * @ignore
+   */
   index?: string;
   itemKey?: string;
   disabled?: boolean;

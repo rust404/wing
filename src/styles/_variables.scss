@@ -240,7 +240,7 @@ $font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas,
   "Liberation Mono", "Courier New", monospace !default;
 $font-family-base: $font-family-sans-serif !default;
 
-$font-size-base: 1rem !default; // Assumes the browser default, typically `16px`
+$font-size-base: 14px !default;
 $font-size-lg: $font-size-base * 1.25 !default;
 $font-size-sm: $font-size-base * 0.875 !default;
 $font-size-root: null !default;
@@ -447,7 +447,7 @@ $input-disabled-bg: $grey-2 !default;
 $input-disabled-border-color: null !default;
 
 $input-color: $grey-7 !default;
-$input-border-color: $grey-4 !default;
+$input-border-color: $grey-5 !default;
 $input-border-width: $border-width !default;
 $input-box-shadow: $box-shadow-inset !default;
 
@@ -456,7 +456,7 @@ $input-border-radius-lg: $border-radius-lg !default;
 $input-border-radius-sm: $border-radius-sm !default;
 
 $input-focus-bg: $input-bg !default;
-$input-focus-border-color: lighten($primary, 25%) !default;
+$input-focus-border-color: lighten($primary, 10%) !default;
 $input-focus-width: 0.2rem !default;
 $input-focus-color: $input-color !default;
 $input-focus-shadow-color: rgba($primary, 0.25) !default;
