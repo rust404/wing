@@ -8,6 +8,7 @@ import classNames from "classnames";
 
 export interface InputProps
   extends Omit<InputHTMLAttributes<HTMLInputElement>, "size"> {
+  disabled?: boolean;
   size?: "lg" | "sm";
   prepend?: string | ReactElement;
   append?: string | ReactElement;
@@ -15,16 +16,25 @@ export interface InputProps
 }
 
 export const Input: FC<InputProps> = (props) => {
-  // extract props
-  const { value, size, append, prepend, onChange, ...restProps } = props;
-  // select class
-  const wrapperClasses = classNames("wing-input-wrapper", {
+  const {
+    value,
+    size,
+    disabled,
+    append,
+    prepend,
+    onChange,
+    className,
+    style,
+    ...restProps
+  } = props;
+  const wrapperClasses = classNames("wing-input-wrapper", className, {
     [`wing-input-${size}`]: size,
   });
   const inputClasses = classNames("wing-input", {
-    'is-appended': append,
-    'is-prepended': prepend
-  })
+    "is-disabled": disabled,
+    "is-appended": append,
+    "is-prepended": prepend,
+  });
   // render
   const renderPrepend = prepend && (
     <span className="wing-input-group-addon wing-input-prepend">{prepend}</span>
@@ -33,13 +43,14 @@ export const Input: FC<InputProps> = (props) => {
     <span className="wing-input-group-addon wing-input-append">{append}</span>
   );
   return (
-    <div className={wrapperClasses}>
+    <div className={wrapperClasses} style={style} {...restProps}>
       {renderPrepend}
       <input
         type="text"
+        value={value}
         className={inputClasses}
         onChange={onChange}
-        {...restProps}
+        disabled={disabled}
       />
       {renderAppend}
     </div>

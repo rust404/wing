@@ -1,6 +1,7 @@
 import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
 import { Input } from "./input";
 import "../../styles/index.scss";
+import { Icon } from "../Icon/icon"
 
 <Meta title="Wing/Input 输入框" component={Input} />
 
@@ -8,10 +9,38 @@ import "../../styles/index.scss";
 
 通过鼠标或者键盘输入内容
 
+## 基本使用
+
 <Preview>
-  <Input append="append" prepend="prepend" />
+  <div style={{maxWidth: "600px"}}>
+  <Input placeholder="basic useage"/>
+  </div>
 </Preview>
 
-## 参数
+## 禁用
+
+<Preview>
+  <div style={{maxWidth: "600px"}}>
+  <Input disabled placeholder="disabled"/>
+  </div>
+</Preview>
+
+## 前后缀
+
+<Preview>
+  <div style={{maxWidth: "600px"}}>
+  <Input prepend="prepend" append={<Icon icon="arrow-down" />} />
+  </div>
+</Preview>
+
+## 尺寸
+
+<Preview>
+  <div style={{maxWidth: "600px"}}>
+    <Input style={{marginBottom: '10px'}} size="sm" prepend="prepend" append="append" placeholder="sm"/>
+    <Input style={{marginBottom: '10px'}} append="append" placeholder="normal"/>
+    <Input size="lg" prepend="prepend" placeholder="lg"/>
+  </div>
+</Preview>
 
 <Props of={Input} />

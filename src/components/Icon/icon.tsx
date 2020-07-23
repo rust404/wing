@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import classNames from "classnames";
-import { library } from "@fortawesome/fontawesome-svg-core";
+import { library, IconProp } from "@fortawesome/fontawesome-svg-core";
 import { fas } from "@fortawesome/free-solid-svg-icons";
 import {
   FontAwesomeIcon,
@@ -11,9 +11,11 @@ library.add(fas);
 
 export interface IconProps extends FontAwesomeIconProps {
   theme?: string;
+  span?: boolean;
+  icon: IconProp;
 }
 
-const Icon: FC<IconProps> = (props) => {
+export const Icon: FC<IconProps> = (props) => {
   const { icon, className, theme, style = {}, ...restProps } = props;
   const classes = classNames("wing-icon", className, {
     [`icon-${theme}`]: theme,

@@ -1,0 +1,24 @@
+.wing-autocomplete-wrapper {
+  position: relative;
+  .wing-autocomplete-options {
+    position: absolute;
+    z-index: 2;
+    top: 100%;
+    left: 0;
+    min-width: 100%;
+    background-color: $white;
+    box-shadow: $autocomplete-box-shadow;
+    > li {
+      cursor: pointer;
+      list-style: none;
+      padding: $autocomplete-option-padding-y $autocomplete-option-padding-x;
+      &:hover, 
+      &.is-active {
+        background: $autocomplete-active-background;
+      }
+      &.is-selected {
+        background: $autocomplete-selected-background;
+      }
+    }
+  }
+}

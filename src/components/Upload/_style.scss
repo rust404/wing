@@ -1,0 +1,32 @@
+.wing-upload-file-list {
+  .wing-upload-file-list-item {
+    list-style: none;
+    margin-bottom: 10px;
+    .file-info {
+      display: flex;
+      align-items: center;
+      list-style: none;
+      font-size: $upload-file-list-font-size;
+      line-height: $upload-file-list-line-height;
+      background: $upload-file-list-bg;
+      .info-icon, .delete-icon {
+        margin-left: auto;
+        width: $upload-file-list-font-size;
+        height: $upload-file-list-font-size;
+      }
+      .delete-icon {
+        display: none;
+      }
+      &:hover {
+        cursor: pointer;
+        background: $upload-file-list-active-bg;
+        .info-icon {
+          display: none;
+        }
+        .delete-icon {
+          display: block;
+        }
+      }
+    }
+  }
+}

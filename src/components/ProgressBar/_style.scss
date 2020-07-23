@@ -1,0 +1,16 @@
+.wing-progressbar-wrapper {
+  .wing-progressbar-outer {
+    position: relative;
+    background-color: $progress-bg;
+    .wing-progressbar-inner {
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      text-align: center;
+      color: $white;
+      background-color: $progress-bar-color;
+      transition: $progress-bar-transition;
+    }
+  }
+}

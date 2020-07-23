@@ -8,12 +8,9 @@ function useClickOutside(
     const dom = domRef.current;
     if (!dom) return;
     const listener = (e: MouseEvent) => {
-      let target = e.target;
       // check target inside dom
-      while (target !== null) {
-        if (!(target instanceof Node)) return;
-        if (target === dom) return;
-        target = target.parentNode;
+      if(domRef.current?.contains(e.target as Node)) {
+        return
       }
       onClickOutside(e);
     };

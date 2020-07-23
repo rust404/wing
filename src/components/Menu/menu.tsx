@@ -73,7 +73,6 @@ export const Menu: FC<IMenuProps> = (props) => {
             MenuItemProps | SubMenuProps
           >;
           const { displayName } = childElement.type;
-          console.log("display", displayName);
           // 兼容MDX语法
           if (
             displayName === "MenuItem" ||

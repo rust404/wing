@@ -473,10 +473,22 @@ $input-group-addon-color: $input-color !default;
 $input-group-addon-bg: $grey-2 !default;
 $input-group-addon-border-color: $input-border-color !default;
 
+$autocomplete-option-padding-x: $btn-padding-x !default;
+$autocomplete-option-padding-y: $btn-padding-y !default;
+$autocomplete-active-background: $grey-2 !default;
+$autocomplete-selected-background: $lightBlue-1 !default;
+$autocomplete-box-shadow: $box-shadow !default;
+
 // Progress bars
 
 $progress-font-size: $font-size-base * 0.75 !default;
 $progress-bg: $grey-2 !default;
 $progress-border-radius: $border-radius !default;
-$progress-bar-color: $white !default;
+$progress-bar-color: $primary !default;
 $progress-bar-transition: width 0.6s ease !default;
+
+// Upload
+$upload-file-list-font-size: $font-size-base !default; 
+$upload-file-list-line-height: $line-height-base !default;
+$upload-file-list-bg: $grey-1;
+$upload-file-list-active-bg: $grey-3;

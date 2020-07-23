@@ -1,0 +1,14 @@
+import { Meta, Story, Preview, Props, Source } from "@storybook/addon-docs/blocks";
+import { AutoComplete } from "./autocomplete";
+import * as stories from './autocomplete.stories.tsx'
+import "../../styles/index.scss";
+
+<Meta title="Wing/AutoComplete 自动补全" component={AutoComplete} />
+
+## 尺寸
+
+<Story name="basic" parameters={{docs: { source: { code: stories.Basic.jsxCode}}}}>{stories.Basic()}</Story>
+
+<Source code={stories.Basic.jsxCode}/>
+
+<Props of={AutoComplete} />

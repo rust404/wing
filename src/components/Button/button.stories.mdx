@@ -8,8 +8,6 @@ import "../../styles/index.scss";
 
 按钮用于触发用户指定的一组行为
 
-<Story name="btnType 类型"/>
-
 ## 类型
 
 `Wing`为用户提供了多种类型的按钮类型
@@ -20,62 +18,64 @@ import "../../styles/index.scss";
 - Link 链接按钮：用于导向外部链接
 
 <Preview>
-  <div>
-    <Button btnType="primary">primary</Button>
-    <Button>default</Button>
-    <Button btnType="danger">danger</Button>
-    <Button btnType="link" href="https://www.bilibili.com" target="_blank">
-      link
-    </Button>
-  </div>
+  <Story name="btnType 类型">
+    <div>
+      <Button btnType="primary">primary</Button>
+      <Button>default</Button>
+      <Button btnType="danger">danger</Button>
+      <Button btnType="link" href="https://www.bilibili.com" target="_blank">
+        link
+      </Button>
+    </div>
+  </Story>
 </Preview>
-
-<Story name="size 尺寸" />
 
 ## 尺寸
 
 按钮组件小、默认、大三种尺寸
 
 <Preview>
-  <div>
-    <Button size="sm">small</Button>
-    <Button>default</Button>
-    <Button size="lg"> large </Button>
-  </div>
+  <Story name="size 尺寸">
+    <div>
+      <Button size="sm">small</Button>
+      <Button>default</Button>
+      <Button size="lg"> large </Button>
+    </div>
+  </Story>
 </Preview>
-
-<Story name="disabled 禁用" />
 
 ## 状态
 
 按钮组件的状态目前有是否禁用一种，通过`disabled`属性进行控制
 
 <Preview>
-  <div>
-    <Button btnType="primary">primary</Button>
-    <Button>default</Button>
-    <Button btnType="danger">danger</Button>
-    <Button btnType="link" href="https://www.bilibili.com" target="_blank">
-      link
-    </Button>
-    <br />
-    <br />
-    <Button disabled btnType="primary">
-      primary
-    </Button>
-    <Button disabled>default</Button>
-    <Button disabled btnType="danger">
-      danger
-    </Button>
-    <Button
-      disabled
-      btnType="link"
-      href="https://www.bilibili.com"
-      target="_blank"
-    >
-      link
-    </Button>
-  </div>
+  <Story name="disabled 禁用">
+    <div>
+      <Button btnType="primary">primary</Button>
+      <Button>default</Button>
+      <Button btnType="danger">danger</Button>
+      <Button btnType="link" href="https://www.bilibili.com" target="_blank">
+        link
+      </Button>
+      <br />
+      <br />
+      <Button disabled btnType="primary">
+        primary
+      </Button>
+      <Button disabled>default</Button>
+      <Button disabled btnType="danger">
+        danger
+      </Button>
+      <Button
+        disabled
+        btnType="link"
+        href="https://www.bilibili.com"
+        target="_blank"
+      >
+        link
+      </Button>
+    </div>
+  </Story>
 </Preview>
 
 ## 参数

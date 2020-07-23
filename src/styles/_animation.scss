@@ -9,6 +9,11 @@
   transform-origin: top;
   transition: all linear 200ms;
 }
+.zoom-in-top-enter-done {
+  opacity: 1;
+  transform: scaleY(1);
+  transform-origin: top;
+}
 .zoom-in-top-exit {
   opacity: 1;
   transform-origin: top;
@@ -19,6 +24,11 @@
   transform: scaleY(0);
   transform-origin: top;
   transition: all linear 200ms;
+}
+.zoom-in-top-exit-done {
+  opacity: 0;
+  transform: scaleY(0);
+  transform-origin: top;
 }
 
 .unfold-enter {

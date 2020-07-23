@@ -1,0 +1,19 @@
+import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
+import { Button } from '../Button/button'
+import { Upload } from "./upload";
+import "../../styles/index.scss";
+
+<Meta title="Wing/Upload 上传" component={Upload} />
+
+# Upload 上传
+
+<Upload
+  action="https://jsonplaceholder.typicode.com/posts"
+  multiple
+  onProgress={(e) => {
+    console.log(e)
+  }}
+  onRemoved={(file) => {
+    console.log(file)
+  }}
+><Button size="sm">上传</Button></Upload>
