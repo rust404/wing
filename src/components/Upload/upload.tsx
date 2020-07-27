@@ -12,10 +12,10 @@ import { UploadList } from "./uploadList";
 
 interface UploadProps {
   beforeUpload?: () => void;
-  onProgress?: (e: ProgressEvent, file: File) => void;
+  onProgress?: (e: ProgressEvent, file: UploadFile) => void;
   onChange?: () => void;
-  onSuccess?: (file: UploadFile) => void;
-  onError?: (err: Error) => void;
+  onSuccess?: (file: UploadFile, data: any) => void;
+  onError?: (file: UploadFile, err: Error) => void;
   onRemoved?: (file: UploadFile) => void;
   accept?: string;
   multiple?: boolean;
@@ -46,70 +46,54 @@ export const Upload: FC<UploadProps> = (props) => {
     name,
     children,
   } = props;
-  const [fileList, setFileList] = useState<UploadFile[]>([
-    { 
-      uid: '123',
-      status: "success",
-      name: 'test.txt',
-      progress: 100,
-    },
-    { 
-      uid: '23',
-      status: "uploading",
-      name: 'upload.txt',
-      progress: 50,
-    },
-    { 
-      uid: '10',
-      status: "error",
-      name: 'error.txt',
-      progress: 50,
-    },
-  ]);
+  const [fileList, setFileList] = useState<UploadFile[]>([]);
   const inputRef = useRef<HTMLInputElement>(null);
   const handleBtnClick = () => {
     inputRef.current?.click();
   };
+  const transferUploadFile = (file: File): UploadFile => {
+    return {
+      uid: Date.now() + "uploadfile",
+      status: "uploading",
+      name: file.name,
+      progress: 0,
+    };
+  };
   const uploadFiles = (files: FileList) => {
-    const formData = new FormData();
     const fileArr = Array.from(files);
     fileArr.forEach((file) => {
+      const formData = new FormData();
       formData.append(name || file.name, file);
-      const uploadFile: UploadFile = {
-        uid: Date.now() + "uploadfile",
-        status: "uploading",
-        name: file.name,
-        progress: 0,
-      };
+      const uploadFile = transferUploadFile(file);
+
       setFileList((prevList) => prevList.concat(uploadFile));
-      axios({
-        method: "post",
-        url: action,
-        headers: {
-          ...headers,
-        },
-        onUploadProgress(e) {
-          setFileList((prevList) => {
-            uploadFile.progress = (e.loaded / e.total) * 100;
-            return [...prevList];
-          });
-          onProgress && onProgress(e, file);
-        },
-        data: formData,
-      })
+      axios
+        .post(action, {
+          headers: {
+            ...headers,
+          },
+          onUploadProgress(e: ProgressEvent) {
+            setFileList((prevList) => {
+              uploadFile.progress = (e.loaded / e.total) * 100;
+              return [...prevList];
+            });
+            onProgress && onProgress(e, uploadFile);
+          },
+          data: formData,
+        })
         .then((resp) => {
           setFileList((prevList) => {
             uploadFile.status = "success";
             return [...prevList];
           });
-          onSuccess && onSuccess(uploadFile);
+          onSuccess && onSuccess(uploadFile, resp.data);
         })
         .catch((err) => {
           setFileList((prevList) => {
             uploadFile.status = "error";
             return [...prevList];
           });
-          onError && onError(err);
+          onError && onError(uploadFile, err);
         });
     });
   };

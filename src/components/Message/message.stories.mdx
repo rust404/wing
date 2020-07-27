@@ -1,0 +1,14 @@
+import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
+import { Message } from "./message";
+import {Button} from '../Button/button'
+import "../../styles/index.scss";
+import {message} from './index.tsx'
+
+<Meta title="Wing/Message 全局消息" component={Message} />
+
+# Message 全局消息
+
+<Button onClick={() => message.success('success message', 3000)}>success</Button>
+<Button onClick={() => message.warning('warning message', 2000)}>warning</Button>
+<Button onClick={() => message.error('error message')}>error</Button>
+<Button onClick={() => message.info('info message')}>info</Button>

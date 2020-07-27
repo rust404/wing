@@ -1,0 +1,24 @@
+.wing-message-wrapper {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.wing-message-item-wrapper {
+  overflow: hidden;
+  box-shadow: $message-box-shadow;
+  margin-bottom: $message-margin-bottom;
+  .wing-message-item {
+    display: flex;
+    align-items: center;
+    flex-grow: 0;
+    background: $white;
+    padding: $message-padding-y $message-padding-x;
+    .icon {
+      margin-right: 10px;
+    }
+  }
+}

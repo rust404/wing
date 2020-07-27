@@ -30,27 +30,31 @@
   transform: scaleY(0);
   transform-origin: top;
 }
-
-.unfold-enter {
-  max-height: 0;
-  overflow: hidden;
+.fade-in-top-enter {
+  opacity: 0;
+  transform: translateY(-100%);
 }
-.unfold-enter-active {
-  max-height: 200px;
-  transition: max-height linear 200ms;
+.fade-in-top-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all linear 300ms;
 }
-.unfold-enter-done {
-  max-height: 200px;
+.fade-in-top-enter-done {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all linear 300ms;
 }
-// .unfold-exit {
-//   height: auto;
-// }
-.unfold-exit-active {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height linear 200ms;
+.fade-in-top-exit {
+  opacity: 1;
+  transform: translateY(0);
 }
-.unfold-exit-done {
-  max-height: 0;
-  overflow: hidden;
+.fade-in-top-exit-active {
+  opacity: 0;
+  transform: translateY(-100%);
+  transition: all linear 300ms;
+}
+.fade-in-top-exit-done {
+  opacity: 0;
+  transform: translateY(-100%);
+  transition: all linear 300ms;
 }
